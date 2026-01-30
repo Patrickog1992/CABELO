@@ -137,10 +137,10 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
   const insights = getPersonalizedInsights();
 
   return (
-    <div className="bg-white min-h-screen font-poppins pb-20 pt-16">
+    <div className="bg-white min-h-screen font-poppins pb-20">
       
-      {/* Fixed Header */}
-      <div className="fixed top-0 left-0 w-full bg-red-600 z-50 px-4 py-3 text-center shadow-lg">
+      {/* Banner de Desconto - Posicionado estaticamente no topo (não acompanha o scroll) */}
+      <div className="w-full bg-red-600 px-4 py-3 text-center shadow-lg">
         <p className="text-white font-bold text-xs md:text-sm">
           Você acabou de ganhar 70% de desconto que expira em : <span className="text-yellow-300 font-mono text-base md:text-lg ml-1">{formatTime(timeLeft)}</span>
         </p>
@@ -313,6 +313,7 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
              
              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                 <h4 className="font-bold text-sm text-gray-900">🎁 BÔNUS 2 — Rotina de Disciplina Capilar</h4>
+                <p className="text-xs text-gray-600 mt-1">Estratégias simples para manter constância e não abandonar o tratamento.</p>
                 <p className="text-xs text-gray-600 mt-1">Estratégias simples para manter constância e não abandonar o tratamento.</p>
                 <p className="text-xs text-gray-500 mt-2">Valor: <span className="text-gray-900 font-bold">R$ 67,00</span></p>
              </div>
