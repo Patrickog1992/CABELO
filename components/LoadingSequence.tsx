@@ -13,6 +13,19 @@ export const LoadingSequence: React.FC<{ onComplete: () => void }> = ({ onComple
   const [testimonialIndex, setTestimonialIndex] = useState(0);
 
   useEffect(() => {
+    // Preload Sales Page Images
+    const imageUrls = [
+      "https://i.imgur.com/qXa3dCh.jpeg", // Antes
+      "https://i.imgur.com/CEDBaC0.jpeg", // Depois
+      "https://i.imgur.com/HkpCxQL.jpeg", // Depoimento 1
+      "https://i.imgur.com/G0rhWVs.jpeg", // Depoimento 2
+      "https://i.imgur.com/RQ5ZImt.jpeg"  // Depoimento 3
+    ];
+    imageUrls.forEach(url => {
+      const img = new Image();
+      img.src = url;
+    });
+
     // Process bars one by one
     if (completedSteps < phrases.length) {
       const timer = setTimeout(() => {

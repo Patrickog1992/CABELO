@@ -123,6 +123,10 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  const handleCheckout = () => {
+    window.location.href = "https://go.perfectpay.com.br/PPU38CQ6SEO";
+  };
+
   // Personalization logic based on answers
   const getPersonalizedInsights = () => {
     return [
@@ -171,7 +175,12 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
         <div className="flex flex-row gap-2 md:gap-4 overflow-hidden">
           <div className="w-1/2 flex flex-col">
             <div className="relative">
-              <img src="https://i.imgur.com/qXa3dCh.jpeg" alt="Antes" className="w-full h-48 md:h-64 object-cover rounded-lg shadow-md grayscale" />
+              <img 
+                src="https://i.imgur.com/qXa3dCh.jpeg" 
+                alt="Antes" 
+                className="w-full h-48 md:h-64 object-cover rounded-lg shadow-md grayscale" 
+                loading="eager"
+              />
               <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">ANTES</div>
             </div>
             <div className="mt-3 space-y-2">
@@ -183,7 +192,12 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
           </div>
           <div className="w-1/2 flex flex-col">
             <div className="relative">
-              <img src="https://i.imgur.com/CEDBaC0.jpeg" alt="Depois" className="w-full h-48 md:h-64 object-cover rounded-lg shadow-md" />
+              <img 
+                src="https://i.imgur.com/CEDBaC0.jpeg" 
+                alt="Depois" 
+                className="w-full h-48 md:h-64 object-cover rounded-lg shadow-md"
+                loading="eager"
+              />
               <div className="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">DEPOIS DO MÉTODO</div>
             </div>
             <div className="mt-3 space-y-2">
@@ -356,7 +370,7 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
              <p className="text-sm text-gray-600">Pagamento único • Acesso vitalício</p>
            </div>
 
-           <Button variant="primary" fullWidth className="text-xl py-6 animate-pulse shadow-[0_0_20px_rgba(34,197,94,0.6)]">
+           <Button variant="primary" fullWidth className="text-xl py-6 animate-pulse shadow-[0_0_20px_rgba(34,197,94,0.6)]" onClick={handleCheckout}>
               👉 QUERO O MÉTODO CRESCE CABELO AGORA!
            </Button>
            
@@ -435,7 +449,7 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
               <p className="text-sm text-gray-600 pl-6">Uma rotina simples, prática e acessível para recuperar seus fios.</p>
            </div>
 
-           <Button variant="primary" fullWidth className="text-xl py-6 shadow-[0_0_20px_rgba(34,197,94,0.6)] animate-pulse">
+           <Button variant="primary" fullWidth className="text-xl py-6 shadow-[0_0_20px_rgba(34,197,94,0.6)] animate-pulse" onClick={handleCheckout}>
               🔥 QUERO O MÉTODO CRESCE CABELO AGORA!
            </Button>
         </div>
