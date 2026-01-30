@@ -148,14 +148,14 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
 
       {/* Purchase Notification Popup */}
       {notification && (
-        <div className="fixed top-20 right-2 md:right-4 z-50 bg-white rounded-lg shadow-xl border-l-4 border-green-500 p-3 max-w-[200px] md:max-w-xs animate-fade-in-down flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs font-bold">
+        <div className="fixed top-24 right-2 z-50 bg-white rounded-lg shadow-lg border-l-4 border-green-500 p-2 max-w-[180px] animate-fade-in-down flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px] font-bold shrink-0">
             ✓
           </div>
-          <div>
-            <p className="text-[10px] md:text-xs text-gray-500">Acabou de comprar</p>
-            <p className="text-xs md:text-sm font-bold text-gray-800 leading-tight">{notification.name}</p>
-            <p className="text-[10px] text-gray-400">{notification.loc}</p>
+          <div className="overflow-hidden">
+            <p className="text-[9px] text-gray-500 leading-none mb-0.5">Acabou de comprar</p>
+            <p className="text-[11px] font-bold text-gray-800 leading-tight truncate">{notification.name}</p>
+            <p className="text-[9px] text-gray-400 truncate">{notification.loc}</p>
           </div>
         </div>
       )}
