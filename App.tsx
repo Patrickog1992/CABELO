@@ -78,7 +78,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Progress Bar (Hidden on Intro and Sales Page) */}
       {currentStep.type !== 'INTRO' && currentStep.type !== 'SALES_PAGE' && (
         <div className="fixed top-0 left-0 w-full h-2 bg-gray-100 z-50">
