@@ -52,10 +52,20 @@ export const AnalysisDHT: React.FC<{ onNext: () => void }> = ({ onNext }) => {
 };
 
 export const AnalysisGraph: React.FC<{ onNext: () => void }> = ({ onNext }) => {
+  // Calculate the month 1 month from now
+  const targetDate = new Date();
+  targetDate.setMonth(targetDate.getMonth() + 1);
+  const monthNames = [
+    "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+  ];
+  const targetMonthName = monthNames[targetDate.getMonth()];
+  const targetYear = targetDate.getFullYear();
+
   return (
     <div className="w-full max-w-xl mx-auto space-y-6 animate-fade-in text-center">
        <h2 className="text-2xl font-bold text-gray-900">O plano definitivo para você conquistar uma cabeleira farta.</h2>
-       <p className="text-gray-600">Com base nas suas respostas, esperamos que você observe um aumento visível na espessura e na saúde do seu cabelo até junho de 2026.</p>
+       <p className="text-gray-600">Com base nas suas respostas, esperamos que você observe um aumento visível na espessura e na saúde do seu cabelo até {targetMonthName} de {targetYear}.</p>
 
        <div className="h-64 w-full bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-end justify-center relative overflow-hidden">
           {/* Custom SVG Chart */}
@@ -68,14 +78,14 @@ export const AnalysisGraph: React.FC<{ onNext: () => void }> = ({ onNext }) => {
             
             {/* Area Fill */}
             <path 
-              d="M 20,180 L 20,160 L 90,140 L 170,80 L 250,50 L 330,20 L 330,180 Z" 
+              d="M 20,180 L 20,160 L 90,80 L 170,50 L 250,30 L 330,20 L 330,180 Z" 
               fill="url(#gradient)" 
               opacity="0.2"
             />
             
             {/* Line */}
             <path 
-              d="M 20,160 L 90,140 L 170,80 L 250,50 L 330,20" 
+              d="M 20,160 L 90,80 L 170,50 L 250,30 L 330,20" 
               fill="none" 
               stroke="currentColor" 
               strokeWidth="4" 
@@ -85,9 +95,9 @@ export const AnalysisGraph: React.FC<{ onNext: () => void }> = ({ onNext }) => {
             
             {/* Points */}
             <circle cx="20" cy="160" r="4" fill="white" stroke="currentColor" strokeWidth="3" />
-            <circle cx="90" cy="140" r="4" fill="white" stroke="currentColor" strokeWidth="3" />
-            <circle cx="170" cy="80" r="6" fill="white" stroke="currentColor" strokeWidth="3" />
-            <circle cx="250" cy="50" r="4" fill="white" stroke="currentColor" strokeWidth="3" />
+            <circle cx="90" cy="80" r="6" fill="white" stroke="currentColor" strokeWidth="3" />
+            <circle cx="170" cy="50" r="4" fill="white" stroke="currentColor" strokeWidth="3" />
+            <circle cx="250" cy="30" r="4" fill="white" stroke="currentColor" strokeWidth="3" />
             <circle cx="330" cy="20" r="4" fill="white" stroke="currentColor" strokeWidth="3" />
 
             {/* Gradient Def */}
@@ -101,16 +111,16 @@ export const AnalysisGraph: React.FC<{ onNext: () => void }> = ({ onNext }) => {
           
           {/* Labels */}
           <div className="absolute bottom-0 w-full flex justify-between px-2 text-xs text-gray-500 font-medium">
-             <span className="w-10 text-center">Mês 1</span>
+             <span className="w-10 text-center">Hoje</span>
+             <span className="w-10 text-center font-bold text-green-700">Mês 1</span>
              <span className="w-10 text-center">Mês 2</span>
-             <span className="w-10 text-center font-bold text-green-700">Mês 3</span>
+             <span className="w-10 text-center">Mês 3</span>
              <span className="w-10 text-center">Mês 4</span>
-             <span className="w-10 text-center">Mês 5</span>
           </div>
        </div>
        
        <p className="text-sm text-green-700 bg-green-50 p-3 rounded-lg font-medium border border-green-100">
-         No 3º mês já vai ter melhorado bastante!
+         No 1º mês já vai ter melhorado bastante!
        </p>
 
        <Button onClick={onNext} fullWidth>Continuar</Button>

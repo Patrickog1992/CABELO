@@ -28,8 +28,9 @@ const App: React.FC = () => {
   const progress = Math.min(100, Math.round((currentStepIndex / (QUIZ_STEPS.length - 2)) * 100));
 
   const handleAnswer = (value: string | string[], shouldAdvance = true) => {
-    // Update state based on step ID
-    if (currentStep.id !== 'intro' && currentStep.id !== 'interstitial_1' && currentStep.id !== 'interstitial_2' && currentStep.id !== 'analysis_1' && currentStep.id !== 'analysis_2' && currentStep.id !== 'loading' && currentStep.id !== 'sales') {
+    // Update state based on step type
+    const nonAnswerTypes = ['INTRO', 'INTERSTITIAL_IMAGE', 'INTERSTITIAL_TEXT', 'ANALYSIS_DHT', 'ANALYSIS_GRAPH', 'LOADING_SEQUENCE', 'SALES_PAGE'];
+    if (!nonAnswerTypes.includes(currentStep.type)) {
         setAnswers(prev => ({
           ...prev,
           [currentStep.id]: value
@@ -43,7 +44,7 @@ const App: React.FC = () => {
               setCurrentStepIndex(prev => prev + 1);
               window.scrollTo(0, 0);
           }
-      }, 150);
+      }, 50);
     }
   };
 
@@ -98,7 +99,10 @@ const App: React.FC = () => {
              <img 
                src="https://i.imgur.com/NjraWbE.png" 
                alt="Método Cresce Cabelo" 
-               className="w-[100px] h-[100px] object-contain" 
+               className="w-[100px] h-[100px] object-contain"
+               width="100"
+               height="100"
+               fetchPriority="high"
              />
            </div>
         )}

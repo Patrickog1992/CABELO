@@ -38,7 +38,10 @@ export const QuizStep: React.FC<QuizStepProps> = ({ step, onAnswer, selectedValu
             <img 
               src={step.imageUrl} 
               alt="Intro" 
-              className="w-full max-w-md rounded-xl shadow-lg object-cover"
+              className="w-full max-w-md rounded-xl shadow-lg object-cover aspect-square"
+              width="400"
+              height="400"
+              fetchPriority="high"
             />
           )}
 
@@ -55,19 +58,26 @@ export const QuizStep: React.FC<QuizStepProps> = ({ step, onAnswer, selectedValu
      )
   }
 
-  if (step.type === 'INTERSTITIAL_IMAGE') {
+  if (step.type === 'INTERSTITIAL_IMAGE' || step.type === 'INTERSTITIAL_TEXT') {
     return (
-      <div className="flex flex-col items-center text-center space-y-6 animate-fade-in">
-        <h2 className="text-2xl font-bold text-gray-900">{step.question}</h2>
-        {step.description && <p className="text-gray-600">{step.description}</p>}
-        {step.imageUrl && (
-          <img 
-            src={step.imageUrl} 
-            alt="Quiz illustration" 
-            className="rounded-lg shadow-lg max-w-full h-auto max-h-[300px] object-cover"
-          />
+      <div className="flex flex-col items-center text-center space-y-6 animate-fade-in w-full max-w-xl mx-auto px-4">
+        {step.content ? (
+          step.content
+        ) : (
+          <>
+            <h2 className="text-2xl font-bold text-gray-900">{step.question}</h2>
+            {step.description && <p className="text-gray-600">{step.description}</p>}
+            {step.imageUrl && (
+              <img 
+                src={step.imageUrl} 
+                alt="Quiz illustration" 
+                className="rounded-lg shadow-lg max-w-full h-auto max-h-[300px] object-cover"
+                loading="lazy"
+              />
+            )}
+          </>
         )}
-        <Button onClick={handleNext} fullWidth className="max-w-md">
+        <Button onClick={handleNext} fullWidth className="max-w-md mt-8">
           {step.nextLabel || 'Continuar'}
         </Button>
       </div>

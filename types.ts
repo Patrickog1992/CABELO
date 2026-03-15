@@ -31,7 +31,7 @@ export interface QuestionOption {
 }
 
 export interface QuizStepConfig {
-  id: keyof QuizAnswers | 'intro' | 'interstitial_1' | 'interstitial_2' | 'interstitial_3' | 'analysis_1' | 'analysis_2' | 'loading' | 'sales';
+  id: keyof QuizAnswers | 'intro' | 'interstitial_1' | 'interstitial_2' | 'interstitial_3' | 'interstitial_rogerio' | 'analysis_1' | 'analysis_2' | 'loading' | 'sales';
   type: StepType;
   question?: string;
   description?: string;

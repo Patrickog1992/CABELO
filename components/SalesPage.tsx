@@ -180,6 +180,9 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
                 alt="Antes" 
                 className="w-full h-48 md:h-64 object-cover rounded-lg shadow-md grayscale" 
                 loading="eager"
+                fetchPriority="high"
+                width="400"
+                height="300"
               />
               <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">ANTES</div>
             </div>
@@ -197,6 +200,9 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
                 alt="Depois" 
                 className="w-full h-48 md:h-64 object-cover rounded-lg shadow-md"
                 loading="eager"
+                fetchPriority="high"
+                width="400"
+                height="300"
               />
               <div className="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">DEPOIS DO MÉTODO</div>
             </div>
@@ -268,6 +274,9 @@ export const SalesPage: React.FC<SalesPageProps> = ({ answers }) => {
                 src={testimonialImages[currentTestimonialImage]} 
                 alt="Cliente Satisfeito" 
                 className="w-full h-full object-cover transition-opacity duration-500"
+                loading="lazy"
+                width="800"
+                height="600"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 backdrop-blur-sm text-white">
                  <div className="flex items-center gap-1 mb-1">
